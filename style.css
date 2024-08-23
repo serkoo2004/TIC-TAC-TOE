@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background-color: #20232a;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #f0f0f0;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #e100ff;
+    border-radius: 10px;
+    font-size: 60px; /* X ve O'nun yeterince büyük olması için */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.cell:hover {
+    background-color: #21a1f1;
+    transform: scale(1.1);
+}
+
+.cell.x {
+    color: #0055ff;
+    animation: markX 0.3s ease-in-out;
+}
+
+.cell.o {
+    color: #ff0000;
+    animation: markO 0.3s ease-in-out;
+}
+
+@keyframes markX {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes markO {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cell:hover {
+    background-color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.winning-message {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    transition: opacity 0.3s;
+}
+
+.winning-message.show {
+    display: flex;
+    opacity: 1;
+}
+
+.winning-message div {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #50e3c2;
+    color: #20232a;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: #2ab59c;
+    transform: scale(1.05);
+}
